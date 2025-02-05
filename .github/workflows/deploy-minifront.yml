@@ -31,7 +31,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup pnpm
-        uses: pnpm/action-setup@v4
+        uses: pnpm/action-setup@0c17529a66aca453f9227af23103ed11469b1e47 # v4
         with:
           version: 9
 
@@ -41,12 +41,12 @@ jobs:
           node-version: '22'
 
       - name: Setup Rust toolchain
-        uses: dtolnay/rust-toolchain@stable
+        uses: dtolnay/rust-toolchain@38b70195107dddab2c7bbd522bcf763bac00963b # stable
         with:
           targets: wasm32-unknown-unknown
 
       - name: Setup wasm-pack
-        uses: jetli/wasm-pack-action@v0.4.0
+        uses: jetli/wasm-pack-action@0d096b08b4e5a7de8c28de67e11e945404e9eefa # v0.4.0
         with:
           version: 'latest'
 
@@ -133,7 +133,7 @@ jobs:
       #       GITHUB_TOKEN is filled in automatically
       #
       - name: Deploy to Cloudflare Pages
-        uses: cloudflare/pages-action@v1
+        uses: cloudflare/pages-action@f0a1cd58cd66095dee69bfa18fa5efd1dde93bca # v1
         if: ${{ env.CLOUDFLARE_API_TOKEN != '' && env.CLOUDFLARE_ACCOUNT_ID != '' && env.CLOUDFLARE_PROJECT_NAME != '' }}
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -186,6 +186,6 @@ jobs:
       #      To deploy, enable Github Pages in your repository settings,
       #      and follow the deployments link on your repository page.
       - name: Deploy to GitHub Actions
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: JamesIves/github-pages-deploy-action@15de0f09300eea763baee31dff6c6184995c5f6a # v4
         with:
           folder: ./web/apps/minifront/dist
